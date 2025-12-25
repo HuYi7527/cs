@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026祝福 | 祝胡言平安顺遂</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fef7fb 50%, #e0c3fc 100%);
+            overflow: hidden;
+            font-family: "STXingkai", "SimKai", "Microsoft YaHei", sans-serif;
+        }
+        /* 飘雪特效 */
+        .snow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+        /* 顶部固定标题 */
+        .year-title {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 500;
+            color: #fff;
+            text-shadow: 0 0 15px #ff69b4, 0 0 30px #ff1493;
+            z-index: 15;
+            white-space: nowrap;
+        }
+        /* 祝福语容器 - 固定显示20条 */
+        .wish-container {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            z-index: 15;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            justify-items: center;
+            align-items: center;
+        }
+        /* 祝福语样式 - 行楷体 */
+        .wish-text {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 500;
+            color: #fff;
+            text-shadow: 0 0 10px #9c27b0, 0 0 20px #673ab7, 0 0 30px #4a148c;
+            animation: textGlow 3s infinite alternate;
+        }
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px #9c27b0, 0 0 20px #673ab7; }
+            to { text-shadow: 0 0 15px #ba68c8, 0 0 30px #9c27b0, 0 0 45px #673ab7; }
+        }
+        /* 顶部星星 */
+        .star {
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            color: #fff9c4;
+            text-shadow: 0 0 15px #ffeb3b, 0 0 30px #ffc107, 0 0 45px #ff9800;
+            animation: twinkle 1.5s infinite alternate;
+            z-index: 20;
+        }
+        @keyframes twinkle {
+            from { opacity: 0.6; transform: translateX(-50%) scale(1); }
+            to { opacity: 1; transform: translateX(-50%) scale(1.2); }
+        }
+        /* 圣诞树容器 */
+        .christmas-tree {
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+        /* 圣诞树层级样式 */
+        .tree-top {
+            width: 0;
+            height: 0;
+            border-left: 70px solid transparent;
+            border-right: 70px solid transparent;
+            border-bottom: 120px solid #4caf50;
+            margin: 0 auto;
+            position: relative;
+        }
+        .tree-middle {
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 160px solid #388e3c;
+            margin: -25px auto 0;
+            position: relative;
+        }
+        .tree-bottom {
+            width: 0;
+            height: 0;
+            border-left: 130px solid transparent;
+            border-right: 130px solid transparent;
+            border-bottom: 200px solid #2e7d32;
+            margin: -35px auto 0;
+            position: relative;
+        }
+        .tree-trunk {
+            width: 50px;
+            height: 100px;
+            background: #8d6e63;
+            margin: 0 auto;
+            border-radius: 8px;
+            position: relative;
+        }
+        /* 圣诞彩灯装饰 */
+        .lights {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 6;
+        }
+        .light {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            animation: lightBlink 2s infinite alternate;
+        }
+        .light-red { background: #e91e63; box-shadow: 0 0 10px #e91e63; }
+        .light-blue { background: #2196f3; box-shadow: 0 0 10px #2196f3; }
+        .light-yellow { background: #ffeb3b; box-shadow: 0 0 10px #ffeb3b; }
+        .light-purple { background: #9c27b0; box-shadow: 0 0 10px #9c27b0; }
+        @keyframes lightBlink {
+            from { opacity: 0.7; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1.1); }
+        }
+        /* 圣诞球装饰 - 摇摆效果 */
+        .ornament {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            animation: swing 2s infinite ease-in-out;
+            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.2);
+        }
+        .ornament1 { top: 250px; left: calc(50% - 90px); background: #e91e63; animation-delay: 0s; }
+        .ornament2 { top: 280px; left: calc(50% + 70px); background: #2196f3; animation-delay: 0.5s; }
+        .ornament3 { top: 350px; left: calc(50% - 110px); background: #ffeb3b; animation-delay: 1s; }
+        .ornament4 { top: 380px; left: calc(50% + 90px); background: #9c27b0; animation-delay: 1.5s; }
+        .ornament5 { top: 450px; left: calc(50% - 30px); background: #ff9800; animation-delay: 0.8s; }
+        @keyframes swing {
+            0% { transform: rotate(-15deg); }
+            50% { transform: rotate(15deg); }
+            100% { transform: rotate(-15deg); }
+        }
+        /* 底部小字祝福语 */
+        .sub-wish {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #fff;
+            text-shadow: 0 0 10px #9c27b0, 0 0 20px #673ab7;
+            z-index: 15;
+            animation: fadeInUp 3s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate(-50%, 50px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部星星 -->
+    <div class="star">★</div>
+    
+    <!-- 顶部固定标题 -->
+    <div class="year-title">祝胡言2026年</div>
+    
+    <!-- 固定祝福语容器 - 20条4字祝福 -->
+    <div class="wish-container">
+        <div class="wish-text">平安顺遂</div>
+        <div class="wish-text">万事胜意</div>
+        <div class="wish-text">前程似锦</div>
+        <div class="wish-text">喜乐安康</div>
+        <div class="wish-text">福气满满</div>
+        <div class="wish-text">好运连连</div>
+        <div class="wish-text">心想事成</div>
+        <div class="wish-text">如意吉祥</div>
+        <div class="wish-text">笑口常开</div>
+        <div class="wish-text">阖家幸福</div>
+        <div class="wish-text">学业有成</div>
+        <div class="wish-text">工作顺利</div>
+        <div class="wish-text">财源广进</div>
+        <div class="wish-text">步步高升</div>
+        <div class="wish-text">美梦成真</div>
+        <div class="wish-text">健康平安</div>
+        <div class="wish-text">顺遂无忧</div>
+        <div class="wish-text">吉庆有余</div>
+        <div class="wish-text">福星高照</div>
+        <div class="wish-text">岁岁平安</div>
+    </div>
+    
+    <!-- 圣诞树 -->
+    <div class="christmas-tree">
+        <!-- 彩灯层 -->
+        <div class="lights">
+            <div class="light light-red" style="top: 100px; left: calc(50% - 50px);"></div>
+            <div class="light light-blue" style="top: 120px; left: calc(50% + 40px);"></div>
+            <div class="light light-yellow" style="top: 180px; left: calc(50% - 70px);"></div>
+            <div class="light light-purple" style="top: 200px; left: calc(50% + 60px);"></div>
+            <div class="light light-red" style="top: 260px; left: calc(50% - 90px);"></div>
+            <div class="light light-blue" style="top: 280px; left: calc(50% + 80px);"></div>
+            <div class="light light-yellow" style="top: 340px; left: calc(50% - 110px);"></div>
+            <div class="light light-purple" style="top: 360px; left: calc(50% + 100px);"></div>
+            <div class="light light-red" style="top: 420px; left: calc(50% - 30px);"></div>
+        </div>
+        <!-- 树体 -->
+        <div class="tree-top"></div>
+        <div class="tree-middle"></div>
+        <div class="tree-bottom"></div>
+        <div class="tree-trunk"></div>
+        <!-- 圣诞球装饰 -->
+        <div class="ornament ornament1"></div>
+        <div class="ornament ornament2"></div>
+        <div class="ornament ornament3"></div>
+        <div class="ornament ornament4"></div>
+        <div class="ornament ornament5"></div>
+    </div>
+    
+    <!-- 底部小字祝福语 -->
+    <div class="sub-wish">圣诞快乐 · 岁岁无忧</div>
+    
+    <!-- 飘雪容器 -->
+    <div class="snow" id="snow"></div>
+
+    <script>
+        // 飘雪效果JS
+        function createSnow() {
+            const snowContainer = document.getElementById('snow');
+            const snowCount = 150; // 雪花数量
+
+            for (let i = 0; i < snowCount; i++) {
+                const snowFlake = document.createElement('div');
+                snowFlake.style.width = `${Math.random() * 5 + 2}px`;
+                snowFlake.style.height = snowFlake.style.width;
+                snowFlake.style.backgroundColor = '#fff';
+                snowFlake.style.borderRadius = '50%';
+                snowFlake.style.position = 'absolute';
+                snowFlake.style.left = `${Math.random() * 100}vw`;
+                snowFlake.style.top = `${Math.random() * -100}px`;
+                snowFlake.style.opacity = Math.random() * 0.8 + 0.2;
+                snowFlake.style.animation = `fall ${Math.random() * 10 + 5}s linear infinite`;
+                snowFlake.style.zIndex = '5';
+                snowContainer.appendChild(snowFlake);
+            }
+        }
+
+        // 雪花下落动画
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                0% { transform: translate(0, 0) rotate(0deg); }
+                100% { transform: translate(${Math.random() * 30 - 15}px, 100vh) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // 初始化飘雪
+        createSnow();
+    </script>
+</body>
+</html>
