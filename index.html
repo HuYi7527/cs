@@ -6,8 +6,32 @@
 <title>祝您生日快乐</title>
 <style>
 * {margin:0;padding:0;box-sizing:border-box;font-family:"PingFang SC","Microsoft YaHei",sans-serif;-webkit-tap-highlight-color:transparent;}
-html,body{width:100%;min-height:100vh;background:linear-gradient(135deg,#fff9f9,#ffe6ea);overflow-x:hidden;position:relative;padding-bottom:110px;padding-top:20px;}
+html,body{width:100%;min-height:100vh;background:linear-gradient(135deg,#fff9f9,#ffe6ea);overflow-x:hidden;position:relative;padding-bottom:100px;padding-top:10px;}
 body.hide-splash #splash{display:none;}
+
+.cover-image-box {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 3px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.cover-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.cover-input {
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
 .age-info-modal {
     position: fixed;
@@ -30,17 +54,109 @@ body.hide-splash #splash{display:none;}
 .barrage-item{position:absolute;white-space:nowrap;font-size:16px;font-weight:bold;color:#ff3333;background:#fff;padding:4px 10px;border-radius:12px;border:1px solid #ff3333;animation:barrageMove linear infinite;}
 @keyframes barrageMove{0%{transform:translateX(105vw);}100%{transform:translateX(-120px);}}
 
+/* 红包弹窗 */
 .redpack-modal{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);display:none;justify-content:center;align-items:center;z-index:9999;}
 .redpack-box{width:280px;height:380px;background:#ff4444;border-radius:20px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;box-shadow:0 0 30px rgba(255,68,68,0.5);}
 .redpack-title{font-size:18px;color:#fff;font-weight:bold;text-align:center;margin-bottom:40px;line-height:1.6;}
 .open-btn{width:80px;height:80px;background:#ffcc00;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:28px;font-weight:bold;color:#ff0000;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+.redpack-close{
+    position:absolute;top:12px;right:12px;
+    width:32px;height:32px;border-radius:50%;
+    background:#fff;color:#ff4444;
+    font-size:16px;font-weight:bold;
+    border:none;cursor:pointer;
+}
 
-.rose-back-splash{position:fixed;top:12px;left:12px;width:48px;height:48px;background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NCIgZmlsbD0iI2ZmNWE3ZCIvPjxwYXRoIGQ9Ik01MCAyMEMzNSAyMCAyNSAzNSAyNSA1MGMwIDE1IDEwIDMwIDI1IDMwczI1LTE1IDI1LTMwQzc1IDM1IDY1IDIwIDUwIDIweiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik01MCAyMGMtMTAgMC0yMCAxMC0yMCAyMHMxMCAyMCAyMCAyMHYtMTBjLTUgMC0xMC01LTEwLTEwczUtMTAgMTAtMTBoMTB6IiBmaWxsPSIjZmZmIi8+PC9zdmc+") no-repeat center;background-size:contain;border-radius:50%;cursor:pointer;z-index:999;}
+/* 返回图标改成星星 */
+.rose-back-splash{
+    position:fixed;top:12px;left:12px;
+    width:44px;height:44px;
+    background:#ff5a7d;
+    color:#fff;font-size:22px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;z-index:999;
+}
 
-.theme-select-box{position:fixed;top:14px;right:12px;z-index:998;}
-.theme-select{padding:6px 10px;border:1px solid #eee;border-radius:8px;background:#fff;font-size:13px;outline:none;}
+/* 主题按钮 */
+.theme-select-box {
+    position: fixed;
+    top: 14px;
+    right: 12px;
+    z-index: 998;
+}
+.theme-home-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ff5a7d;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
 
-.music-toggle{position:fixed;top:70px;left:12px;width:36px;height:36px;border-radius:50%;background:#ff5a7d;color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;z-index:998;}
+.theme-wheel-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 10005;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.theme-wheel-box {
+    background: #fff;
+    width: 280px;
+    padding: 28px 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+.theme-wheel-box h3 {
+    color: #ff5a7d;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.theme-item {
+    padding: 12px 0;
+    margin: 8px 0;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.theme-item.t1 {background: linear-gradient(90deg, #ff9a9e, #fad0c4);}
+.theme-item.t2 {background: linear-gradient(90deg, #a1c4fd, #c2e9fb);}
+.theme-item.t3 {background: linear-gradient(90deg, #84fab0, #8fd3f4);}
+.theme-item.t4 {background: linear-gradient(90deg, #ffecd2, #fcb69f);}
+.theme-item.t5 {background: linear-gradient(90deg, #e0c3fc, #8ec5fc);}
+.theme-close {
+    margin-top: 16px;
+    padding: 8px 24px;
+    background: #ff5a7d;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.music-toggle{
+    position:fixed;top:70px;left:12px;
+    width:36px;height:36px;
+    border-radius:50%;
+    background:#ff5a7d;
+    color:#fff;font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+    border:none;cursor:pointer;z-index:998;
+}
 
 body.theme1{background:linear-gradient(135deg,#fff9f9,#ffe6ea);}
 body.theme2{background:linear-gradient(135deg,#f0f7ff,#c6dfff);}
@@ -58,65 +174,185 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 .modal-content p{color:#333;font-size:15px;line-height:1.7;text-align:left;margin-bottom:10px;}
 .modal-close{margin-top:20px;padding:9px 24px;background:#ff5a7d;color:#fff;border:none;border-radius:22px;cursor:pointer;}
 
+.legal-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10003;
+    align-items: center;
+    justify-content: center;
+}
+.legal-box {
+    background: #fff;
+    width: 85%;
+    max-width: 360px;
+    padding: 28px;
+    border-radius: 18px;
+    text-align: left;
+}
+.legal-box h3 {
+    color: #ff5a7d;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.legal-box p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+.legal-close {
+    margin-top: 20px;
+    padding: 9px 24px;
+    background: #ff5a7d;
+    color: #fff;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    width: 100%;
+}
+
 .surprise-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9998;align-items:center;justify-content:center;}
 .surprise-box{background:#fff;width:80%;max-width:300px;padding:25px;border-radius:18px;text-align:center;}
 .surprise-box h3{color:#ff5a7d;margin-bottom:20px;}
 .surprise-option{width:100%;padding:10px 0;margin:8px 0;background:#ff5a7d;color:#fff;border:none;border-radius:25px;font-size:15px;cursor:pointer;}
-.surprise-option.close-btn{background:#90EE90;color:#FFD700;}
+.surprise-option.close-btn {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    color: #fff;
+    font-weight: bold;
+}
 
-#splash{position:fixed;width:100%;height:100vh;background:linear-gradient(135deg,#ff5a7d,#ff88aa);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;color:#fff;gap:16px;padding:0 20px;}
-.splash-title{font-size:32px;font-weight:bold;letter-spacing:2px;}
-.splash-full-name{font-size:17px;opacity:0.95;margin-bottom:40px;}
-.splash-team-desc{font-size:15px;opacity:0.9;margin:10px 0 20px 0;text-align:center;}
-.splash-time-center{font-size:16px;opacity:0.92;margin-bottom:24px;}
-.splash-input{width:260px;padding:12px 18px;border-radius:30px;border:none;outline:none;font-size:15px;text-align:center;background:rgba(255,255,255,0.92);color:#333;}
-.splash-btn{padding:12px 36px;border-radius:30px;border:none;background:#fff;color:#ff5a7d;font-size:16px;font-weight:bold;cursor:pointer;margin-top:8px;}
-.splash-footer{position:absolute;bottom:30px;font-size:12px;color:rgba(255,255,255,0.8);text-align:center;}
+#splash{position:fixed;width:100%;height:100vh;background:linear-gradient(135deg,#ff5a7d,#ff88aa);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;color:#fff;gap:8px;padding:20px;text-align:center;}
+.splash-title{font-size:28px;font-weight:bold;letter-spacing:1.4px;margin-bottom:4px;}
+.splash-full-name{font-size:16px;opacity:0.95;margin-bottom:8px;}
+.splash-team-desc{font-size:14px;opacity:0.9;margin:4px 0 10px 0;}
+.splash-time-center{font-size:15px;opacity:0.92;margin-bottom:12px;}
+.splash-input{width:240px;padding:10px 16px;border-radius:30px;border:none;outline:none;font-size:14px;text-align:center;background:rgba(255,255,255,0.92);color:#333;margin-bottom:6px;}
+.splash-btn{padding:10px 30px;border-radius:30px;border:none;background:#fff;color:#ff5a7d;font-size:15px;font-weight:bold;cursor:pointer;margin-top:6px;}
 
-.container{width:100%;padding:80px 20px 20px;display:flex;flex-direction:column;gap:24px;align-items:center;}
-.main-full-name{font-size:20px;color:#ff5a7d;font-weight:bold;margin-bottom:8px;}
-.main-time{font-size:16px;color:#666;margin-bottom:10px;}
-.birthday-surprise-btn{padding:14px 32px;background:linear-gradient(90deg,#ff5a7d,#ff88aa);color:#fff;border:none;border-radius:30px;font-size:16px;font-weight:bold;cursor:pointer;}
-.head-box{background:linear-gradient(90deg,#ff5a7d,#ff88aa);color:#fff;padding:28px 20px;border-radius:16px;text-align:center;width:100%;}
-.head-box h1{font-size:28px;line-height:1.4;}
-.birth-box{background:rgba(255,255,255,0.95);padding:18px;border-radius:14px;text-align:center;font-size:17px;color:#d03040;font-weight:bold;width:100%;}
-.wish-box{background:rgba(255,255,255,0.95);padding:24px;border-radius:16px;text-align:center;width:100%;}
-.wish-cn{font-size:18px;line-height:1.8;color:#333;margin-bottom:10px;}
-.wish-en{font-size:14px;color:#666;}
+.splash-copyright {
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+    padding: 0 20px;
+}
+.splash-copyright .copy-main {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
 
-.cake-box{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);transition:0.5s;z-index:994;opacity:0;width:240px;text-align:center;}
+/* 祝福页面排版收紧 */
+.container{
+    width:100%;
+    max-width:380px;
+    margin:0 auto;
+    padding:60px 16px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    align-items:center;
+}
+.main-full-name{font-size:18px;color:#ff5a7d;font-weight:bold;margin-bottom:4px;}
+.main-time{font-size:14px;color:#666;margin-bottom:6px;}
+.birthday-surprise-btn{
+    padding:12px 28px;
+    background:linear-gradient(90deg,#ff5a7d,#ff88aa);
+    color:#fff;border:none;border-radius:30px;
+    font-size:15px;font-weight:bold;
+    cursor:pointer;
+}
+.head-box{
+    background:linear-gradient(90deg,#ff5a7d,#ff88aa);
+    color:#fff;padding:20px 16px;
+    border-radius:16px;text-align:center;
+    width:100%;
+}
+.head-box h1{font-size:24px;line-height:1.4;}
+.birth-box{
+    background:rgba(255,255,255,0.95);
+    padding:14px;border-radius:14px;
+    text-align:center;font-size:15px;
+    color:#d03040;font-weight:bold;
+    width:100%;
+}
+.wish-box{
+    background:rgba(255,255,255,0.95);
+    padding:18px;border-radius:16px;
+    text-align:center;width:100%;
+}
+.wish-cn{font-size:16px;line-height:1.7;color:#333;margin-bottom:8px;}
+.wish-en{font-size:13px;color:#666;}
+
+.cake-box{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);transition:0.5s;z-index:994;opacity:0;width:220px;text-align:center;}
 .cake-box.show{transform:translate(-50%,-50%) scale(1);opacity:1;}
-.cake-body{width:200px;height:70px;background:#fff;border-radius:12px;margin:0 auto;}
-.cake-candle-group{display:flex;justify-content:center;gap:22px;margin-top:-35px;}
-.candle-stick{width:10px;height:45px;background:linear-gradient(to top,#ffd700,#ffed4e);border-radius:4px;position:relative;}
+.cake-body{width:180px;height:65px;background:#fff;border-radius:12px;margin:0 auto;}
+.cake-candle-group{display:flex;justify-content:center;gap:20px;margin-top:-32px;}
+.candle-stick{width:9px;height:42px;background:linear-gradient(to top,#ffd700,#ffed4e);border-radius:4px;position:relative;}
 .candle-flame{width:7px;height:14px;background:linear-gradient(to top,#ff9d00,#ffd700);border-radius:50%;position:absolute;top:-12px;left:1.5px;animation:flame 0.8s infinite alternate;display:none;}
 .candle-flame.show{display:block;}
 @keyframes flame{0%{transform:scale(1);opacity:0.9;}100%{transform:scale(1.18);opacity:1;}}
 
 #fireworksCanvas{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:995;pointer-events:none;display:none;}
 
-.bottom-nav{position:fixed;bottom:0;left:0;width:100%;height:50px;background:#fff;box-shadow:0 -2px 10px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;z-index:990;}
-.nav-wish-btn{background:#ff5a7d;color:#fff;border:none;border-radius:25px;padding:8px 24px;font-size:15px;font-weight:bold;cursor:pointer;}
+.bottom-nav{
+    position:fixed;bottom:0;left:0;
+    width:100%;height:50px;
+    background:#fff;box-shadow:0 -2px 10px rgba(0,0,0,0.08);
+    display:flex;align-items:center;justify-content:center;
+    z-index:990;
+}
+.nav-wish-btn{
+    background:#ff5a7d;color:#fff;
+    border:none;border-radius:25px;
+    padding:8px 24px;font-size:15px;font-weight:bold;
+    cursor:pointer;
+}
 
 .wish-input-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:none;justify-content:center;align-items:center;z-index:10000;}
 .wish-input-box{background:#fff;width:85%;max-width:320px;padding:24px;border-radius:18px;text-align:center;}
 .wish-input-box h3{color:#ff5a7d;margin-bottom:16px;}
 .wish-input{width:100%;height:80px;padding:10px;border:1px solid #eee;border-radius:10px;resize:none;font-size:15px;margin-bottom:16px;outline:none;}
 .wish-submit{background:#ff5a7d;color:#fff;border:none;border-radius:20px;padding:8px 20px;font-size:15px;cursor:pointer;}
-.wish-close{background:#90EE90;color:#FFD700;border:none;border-radius:20px;padding:8px 20px;font-size:15px;cursor:pointer;margin-left:8px;}
+.wish-close{background:#90EE90;color:#fff;border:none;border-radius:20px;padding:8px 20px;font-size:15px;cursor:pointer;margin-left:8px;}
 
 .wish-cake-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.92);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:10001;padding:20px;}
-.cake-icon{font-size:100px;margin-bottom:20px;}
-.wish-card{background:#fff;padding:20px 26px;border-radius:16px;box-shadow:0 4px 15px rgba(0,0,0,0.1);max-width:320px;text-align:center;}
-.wish-text{font-size:17px;color:#333;line-height:1.6;}
-.wish-card-close{margin-top:20px;background:#ff5a7d;color:#fff;border:none;border-radius:20px;padding:8px 22px;font-size:15px;cursor:pointer;}
+.cake-icon{font-size:90px;margin-bottom:16px;}
+.wish-card{background:#fff;padding:18px 22px;border-radius:16px;box-shadow:0 4px 15px rgba(0,0,0,0.1);max-width:300px;text-align:center;}
+.wish-text{font-size:16px;color:#333;line-height:1.6;}
+.wish-card-close{margin-top:16px;background:#ff5a7d;color:#fff;border:none;border-radius:20px;padding:8px 22px;font-size:15px;cursor:pointer;}
 
-.footer{position:fixed;bottom:50px;left:0;width:100%;background:#fff;text-align:center;padding:10px 0;font-size:12px;color:#666;border-top:1px solid #f2f2f2;z-index:989;line-height:1.8;}
-.footer a{color:#ff5a7d;text-decoration:none;margin:0 6px;font-weight:50%;cursor:pointer;}
+.footer{
+    position:fixed;bottom:50px;left:0;
+    width:100%;background:#fff;
+    text-align:center;padding:8px 0;
+    font-size:12px;color:#666;
+    border-top:1px solid #f2f2f2;
+    z-index:989;line-height:1.6;
+}
+.footer a{color:#ff5a7d;text-decoration:none;margin:0 6px;font-weight:500;cursor:pointer;}
 
-.service-link{position:fixed;right:12px;bottom:60px;color:#ff5a7d;font-size:13px;text-decoration:underline;cursor:pointer;z-index:991;}
+/* AI客服图标 */
+.service-link{
+    position:fixed;right:12px;bottom:60px;
+    width:40px;height:40px;
+    border-radius:50%;
+    background:#ff5a7d;
+    color:#fff;font-size:18px;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;z-index:991;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
 
-.chat-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10003;align-items:center;justify-content:center;}
+.chat-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10004;align-items:center;justify-content:center;}
 .chat-box{background:#fff;width:90%;max-width:330px;height:460px;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;}
 .chat-header{background:#ff5a7d;color:#fff;padding:12px;text-align:center;font-weight:bold;font-size:16px;}
 .chat-body{flex:1;padding:12px;overflow-y:auto;background:#f9f9f9;}
@@ -133,23 +369,33 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 
 <div class="age-info-modal" id="ageInfoModal"></div>
 <div class="redpack-barrage" id="barrage"></div>
+
 <div class="redpack-modal" id="redpackModal">
     <div class="redpack-box">
+        <button class="redpack-close" onclick="closeRedpackModal()">×</button>
         <div class="redpack-title" id="redpackTitle"></div>
         <div class="open-btn" onclick="openRedpack()">开</div>
     </div>
 </div>
 
-<div class="rose-back-splash" onclick="goToSplash()"></div>
+<!-- 返回星星图标 -->
+<div class="rose-back-splash" onclick="goToSplash()">🌟</div>
+
 <div class="theme-select-box">
-    <select class="theme-select" id="themeSelect" onchange="changeTheme()">
-        <option value="1">主题一 · 温馨粉</option>
-        <option value="2">主题二 · 天空蓝</option>
-        <option value="3">主题三 · 清新绿</option>
-        <option value="4">主题四 · 温暖黄</option>
-        <option value="5">主题五 · 浪漫紫</option>
-    </select>
+    <button class="theme-home-btn" onclick="openThemeWheel()">🏠</button>
 </div>
+<div class="theme-wheel-modal" id="themeWheelModal">
+    <div class="theme-wheel-box">
+        <h3>选择主题风格</h3>
+        <div class="theme-item t1" onclick="setTheme(1)">温馨粉 · 主题一</div>
+        <div class="theme-item t2" onclick="setTheme(2)">天空蓝 · 主题二</div>
+        <div class="theme-item t3" onclick="setTheme(3)">清新绿 · 主题三</div>
+        <div class="theme-item t4" onclick="setTheme(4)">温暖黄 · 主题四</div>
+        <div class="theme-item t5" onclick="setTheme(5)">浪漫紫 · 主题五</div>
+        <button class="theme-close" onclick="closeThemeWheel()">关闭</button>
+    </div>
+</div>
+
 <button class="music-toggle" id="musicBtn" onclick="toggleMusic()">🔊</button>
 
 <div class="bottom-tip" id="bottomTip"></div>
@@ -166,13 +412,24 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
     </div>
 </div>
 
+<div class="legal-modal" id="legalModal">
+    <div class="legal-box">
+        <h3>法律声明 & 著作权保护</h3>
+        <p>1. 本网站所有内容（包括但不限于代码、文字、设计、图片、音频、UI布局等）均由胡燚等团队人员原创开发，受《中华人民共和国著作权法》及国际版权公约保护。</p>
+        <p>2. 未经著作权人书面授权，任何单位或个人不得复制、传播、展示、修改、抄袭、转载或用于商业用途。</p>
+        <p>3. 严禁将本页面用于违法、违规及有损他人权益的用途，否则将依法追究法律责任。</p>
+        <p>4. 本页面仅为生日祝福展示使用，不构成任何商业承诺，开发者不承担因使用本页面产生的间接责任。</p>
+        <button class="legal-close" onclick="closeLegalModal()">关闭</button>
+    </div>
+</div>
+
 <div class="surprise-modal" id="surpriseModal">
     <div class="surprise-box">
         <h3>选择生日惊喜</h3>
         <button class="surprise-option" onclick="chooseCandleSequence()">①点亮生日蜡烛</button>
         <button class="surprise-option" onclick="chooseChangeWish()">②切换祝福语</button>
         <button class="surprise-option" onclick="showRedpackModal()">③领取红包</button>
-        <button class="surprise-option.close-btn" onclick="closeSurpriseModal()">关闭</button>
+        <button class="surprise-option close-btn" onclick="closeSurpriseModal()">关闭</button>
     </div>
 </div>
 
@@ -200,7 +457,7 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
     <div class="chat-box">
         <div class="chat-header">AI智能客服</div>
         <div class="chat-body" id="chatBody">
-            <div class="chat-message chat-bot">您好呀😊 我是本站AI智能客服，有任何问题都可以问我哦~</div>
+            <div class="chat-message chat-bot">您好呀😊 我是AI生日小助手，有任何问题都可以问我~</div>
         </div>
         <div class="chat-input-area">
             <input type="text" class="chat-input" id="chatInput" placeholder="请输入消息..." onkeydown="if(event.keyCode===13)sendChat()">
@@ -210,14 +467,25 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 </div>
 
 <div id="splash">
+    <input type="file" id="coverInput" accept="image/*" style="display:none;">
+    <label for="coverInput" class="cover-input">点击上传封面图</label>
+    <div class="cover-image-box">
+        <img id="coverPreview" src="" alt="封面图">
+    </div>
+
     <div class="splash-title">敬恩生辰祝福网站</div>
     <div class="splash-full-name">（今天是您的生日）</div>
-    <div class="splash-team-desc">——（本网站由胡燚团队精心定制）——</div>
+    <div class="splash-team-desc">—— 由胡燚团队精心定制 ——</div>
     <div class="splash-time-center" id="splashTime"></div>
+
     <input type="text" class="splash-input" id="userName" value="胡红安" placeholder="请输入姓名">
     <input type="date" class="splash-input" id="birthDay" value="1972-02-20">
     <button class="splash-btn" onclick="enterMainPage()">进入祝福主页</button>
-    <div class="splash-footer">版权所有©胡燚 2026 敬恩生辰祝福网站宣传团队 </div>
+
+    <div class="splash-copyright">
+        <div class="copy-main">版权所有 © 胡燚 2026</div>
+        <div>敬恩生辰祝福网站宣传团队 · 保留所有权利</div>
+    </div>
 </div>
 
 <div class="container">
@@ -249,19 +517,17 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 
 <div class="footer">
     版权所有©胡燚 2026 敬恩生辰祝福网站宣传团队<br/>
-    © 2026 胡燚 - All Rights Reserved.<br>
-    本网站内容（包括但不限于代码、文字、设计、图片）均受著作权法保护。<br>
-    未经书面许可，不得擅自使用、复制、传播或用于商业用途。<br>
-    本页面仅为个人作品展示，不承担任何因使用本页面产生的相关责任。<br/>
+    - All Rights Reserved.<br>
     <a onclick="showTeamModal()">网页创作者：胡燚团队</a>
-    <a onclick="showTip('请投稿166****7527@163.com…')">联系方式</a>
-    <a onclick="showTip('本网站未经作者授权，不得擅自使用、复制、传播或用于商业用途…')">法律声明</a>
+    <a onclick="showTip('请投稿166****7527@163.com')">联系方式</a>
+    <a onclick="openLegalModal()">重要声明</a>
 </div>
 
-<div class="service-link" onclick="openChat()">AI客服</div>
+<!-- AI客服图标 -->
+<div class="service-link" onclick="openChat()">💬</div>
+
 <div class="toast" id="toast"></div>
 
-<!-- 本地音频 -->
 <audio id="bgm" loop preload="auto">
     <source src="./birthday.mp3" type="audio/mpeg">
 
@@ -273,6 +539,7 @@ const toast = document.getElementById('toast');
 const canvas = document.getElementById('fireworksCanvas');
 const ctx = canvas.getContext('2d');
 const teamModal = document.getElementById('teamModal');
+const legalModal = document.getElementById('legalModal');
 const surpriseModal = document.getElementById('surpriseModal');
 const cakeBox = document.getElementById('cakeBox');
 const flames = document.querySelectorAll('.candle-flame');
@@ -280,7 +547,6 @@ const splashTimeEl = document.getElementById('splashTime');
 const mainTimeEl = document.getElementById('mainTime');
 const bottomTip = document.getElementById('bottomTip');
 const wishTip = document.getElementById('wishTip');
-const themeSelect = document.getElementById('themeSelect');
 const redpackModal = document.getElementById('redpackModal');
 const redpackTitle = document.getElementById('redpackTitle');
 const barrageEl = document.getElementById('barrage');
@@ -293,6 +559,24 @@ const chatModal = document.getElementById('chatModal');
 const chatBody = document.getElementById('chatBody');
 const chatInput = document.getElementById('chatInput');
 
+const themeWheelModal = document.getElementById('themeWheelModal');
+function openThemeWheel() { themeWheelModal.style.display = 'flex'; }
+function closeThemeWheel() { themeWheelModal.style.display = 'none'; }
+function setTheme(n) {
+    document.body.className = `theme${n} ${document.body.classList.contains('hide-splash')?'hide-splash':''}`;
+    closeThemeWheel();
+    showTip("主题已切换");
+}
+
+const coverInput = document.getElementById('coverInput');
+const coverPreview = document.getElementById('coverPreview');
+coverInput.addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    coverPreview.src = url;
+});
+
 let userName = '';
 let userAge = 0;
 let isDad = true;
@@ -300,13 +584,36 @@ let wishIndex = 0;
 
 const barrageTexts = ["生日快乐 🧧","福寿安康 🧧","万事顺遂 🧧","笑口常开 🧧","平安喜乐 🧧","吉祥如意 🧧","身体健康 🧧","心想事成 🧧"];
 
+function closeRedpackModal(){
+    redpackModal.style.display = 'none';
+}
+
 function showRedpackModal(){
     closeSurpriseModal();
     redpackTitle.innerText = `${userName}\n今天是您${userAge}岁生日`;
     redpackModal.style.display = 'flex';
 }
-function openRedpack(){redpackModal.style.display='none';barrageEl.style.display='block';createBarrage();showTip("红包已开启，祝福红包来袭！");}
-function createBarrage(){barrageEl.innerHTML='';for(let i=0;i<10;i++){const item=document.createElement('div');item.className='barrage-item';item.innerText=barrageTexts[Math.floor(Math.random()*barrageTexts.length)];const top=Math.random()*80+5;const duration=Math.random()*6+8;const delay=Math.random()*5;item.style.top=top+'%';item.style.animationDuration=duration+'s';item.style.animationDelay=delay+'s';barrageEl.appendChild(item);}}
+function openRedpack(){
+    redpackModal.style.display='none';
+    barrageEl.style.display='block';
+    createBarrage();
+    showTip("红包已开启，祝福红包来袭！");
+}
+function createBarrage(){
+    barrageEl.innerHTML='';
+    for(let i=0;i<10;i++){
+        const item=document.createElement('div');
+        item.className='barrage-item';
+        item.innerText=barrageTexts[Math.floor(Math.random()*barrageTexts.length)];
+        const top=Math.random()*80+5;
+        const duration=Math.random()*6+8;
+        const delay=Math.random()*5;
+        item.style.top=top+'%';
+        item.style.animationDuration=duration+'s';
+        item.style.animationDelay=delay+'s';
+        barrageEl.appendChild(item);
+    }
+}
 
 const wishList = [
     {cn:"愿您筋骨强健，步履轻盈，三餐有味，夜夜安枕，健康常伴左右。",en:"May you have strong bones, light steps, delicious meals, peaceful sleep every night, and health always by your side."},
@@ -318,6 +625,8 @@ const wishList = [
 
 function showTeamModal(){teamModal.style.display='flex';}
 function closeTeamModal(){teamModal.style.display='none';}
+function openLegalModal(){legalModal.style.display='flex';}
+function closeLegalModal(){legalModal.style.display='none';}
 function openSurpriseModal(){surpriseModal.style.display='flex';}
 function closeSurpriseModal(){surpriseModal.style.display='none';}
 
@@ -344,18 +653,23 @@ function chooseChangeWish(){
     showTip("祝福语已切换");
 }
 
-function changeTheme(){
-    const v=themeSelect.value;
-    document.body.className=`theme${v} ${document.body.classList.contains('hide-splash')?'hide-splash':''}`;
-    showTip("主题已切换");
-}
-
 function toggleMusic(){
-    if(bgm.paused){bgm.play();musicBtn.innerText='🔊';showTip("背景音乐已开启");}
-    else{bgm.pause();musicBtn.innerText='🔇';showTip("背景音乐已关闭");}
+    if(bgm.paused){
+        bgm.play();
+        musicBtn.innerText='🔊';
+        showTip("背景音乐已开启");
+    }else{
+        bgm.pause();
+        musicBtn.innerText='🔇';
+        showTip("背景音乐已关闭");
+    }
 }
 
-function showTip(text){toast.innerText=text;toast.style.display='block';setTimeout(()=>toast.style.display='none',2000);}
+function showTip(text){
+    toast.innerText=text;
+    toast.style.display='block';
+    setTimeout(()=>toast.style.display='none',2000);
+}
 
 function updateDateTime(){
     const now=new Date();
@@ -390,10 +704,32 @@ function goToSplash(){
     showTip("已返回开始界面");
 }
 
-function showFireworks(){canvas.style.display='block';launchFireworks();setTimeout(()=>{canvas.style.display='none';},3500);}
-class Particle{constructor(x,y){this.x=x;this.y=y;this.vx=(Math.random()-0.5)*6;this.vy=(Math.random()-0.5)*6;this.alpha=1;this.color=`hsl(${Math.random()*360},70%,60%)`;}
-update(){this.x+=this.vx;this.y+=this.vy;this.alpha-=0.015;}
-draw(){ctx.save();ctx.globalAlpha=this.alpha;ctx.fillStyle=this.color;ctx.beginPath();ctx.arc(this.x,this.y,3,0,Math.PI*2);ctx.fill();ctx.restore();}}
+function showFireworks(){
+    canvas.style.display='block';
+    launchFireworks();
+    setTimeout(()=>{canvas.style.display='none';},3500);
+}
+class Particle{
+    constructor(x,y){
+        this.x=x;this.y=y;
+        this.vx=(Math.random()-0.5)*6;
+        this.vy=(Math.random()-0.5)*6;
+        this.alpha=1;
+        this.color=`hsl(${Math.random()*360},70%,60%)`;
+    }
+    update(){
+        this.x+=this.vx;this.y+=this.vy;this.alpha-=0.015;
+    }
+    draw(){
+        ctx.save();
+        ctx.globalAlpha=this.alpha;
+        ctx.fillStyle=this.color;
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,3,0,Math.PI*2);
+        ctx.fill();
+        ctx.restore();
+    }
+}
 function launchFireworks(){
     let ps=[];
     for(let i=0;i<120;i++)ps.push(new Particle(window.innerWidth/2,window.innerHeight/2));
@@ -417,21 +753,42 @@ function submitWish(){
 }
 function closeWishCake(){wishCakeModal.style.display='none';}
 
+// 更智能的AI客服
 function getSmartAnswer(msg) {
     const m = msg.trim().toLowerCase();
-    if (m.includes('你好') || m.includes('嗨') || m.includes('在吗')) return '你好呀😊 很高兴为你服务！';
-    if (m.includes('功能') || m.includes('能干什么') || m.includes('作用')) return '本网站可点亮蜡烛、切换祝福语、领红包、许下生日心愿，还能更换界面主题哦~';
-    if (m.includes('客服') || m.includes('帮助')) return '我就是AI智能客服，有问题直接问我就可以啦😉';
-    if (m.includes('心愿') || m.includes('蛋糕')) return '点击底部「许下心愿」，输入内容即可生成专属心愿蛋糕🍰';
-    if (m.includes('红包') || m.includes('领取')) return '点击「点击开启生日惊喜」，选择「领取红包」即可查看祝福虚拟红包~';
-    if (m.includes('年龄') || m.includes('几岁')) return '年龄会根据你输入的出生年月自动计算展示哦';
-    if (m.includes('主题') || m.includes('皮肤')) return '右上角下拉框可切换5种不同风格界面主题，随心更换~';
-    if (m.includes('音乐') || m.includes('声音')) return '左上角喇叭按钮可控制背景音乐的播放与暂停';
-    if (m.includes('联系') || m.includes('方式')) return '功能正在完善中，敬请期待';
-    if (m.includes('团队') || m.includes('创作者')) return '本网站由胡燚团队专业开发制作，点击底部版权可查看团队详情';
-    if (m.includes('谢谢') || m.includes('感谢')) return '不客气😊 能帮到你我很开心，祝你生日快乐！';
-    if (m.includes('生日快乐') || m.includes('生日')) return '也祝您生日快乐，平安喜乐，万事胜意🎂';
-    return '我是胡主人的AI客服，我已经收到你的消息啦，正在努力学习更多知识，你可以问问我网站功能、心愿、红包、主题等问题哦~';
+    if (m.includes('你好') || m.includes('嗨') || m.includes('在吗') || m.includes('hi')) 
+        return '你好呀😊 我是胡主人研发的生日AI智能客服助手，祝你生日快乐，万事顺遂！';
+    if (m.includes('功能') || m.includes('能干什么') || m.includes('作用') || m.includes('怎么玩')) 
+        return '我可以帮你：点亮蜡烛、切换祝福语、领红包、许愿、换主题、控制音乐～';
+    if (m.includes('客服') || m.includes('帮助') || m.includes('问题') || m.includes('不会')) 
+        return '我就是胡主人研发的AI智能客服，有任何问题直接问我就可以啦😉';
+    if (m.includes('心愿') || m.includes('蛋糕') || m.includes('许愿')) 
+        return '点击底部「许下心愿」，输入内容就能生成专属心愿蛋糕🍰';
+    if (m.includes('红包') || m.includes('领取') || m.includes('奖励')) 
+        return '点击「开启生日惊喜」→「领取红包」，就能查看生日祝福红包啦🧧';
+    if (m.includes('年龄') || m.includes('几岁') || m.includes('多大')) 
+        return '年龄会根据你输入的出生年月自动计算，非常准确哦';
+    if (m.includes('主题') || m.includes('皮肤') || m.includes('风格') || m.includes('颜色')) 
+        return '点击右上角🏠按钮，即可切换5种超好看的主题风格';
+    if (m.includes('音乐') || m.includes('声音') || m.includes('背景')) 
+        return '左上角喇叭按钮可以开启/关闭生日快乐背景音乐';
+    if (m.includes('返回') || m.includes('主页') || m.includes('首页')) 
+        return '点击左上角🌟星星图标，就可以回到开始页面';
+    if (m.includes('联系') || m.includes('作者') || m.includes('电话') || m.includes('邮箱')) 
+        return '网站由胡燚团队制作，联系方式可点击底部「联系方式」查看';
+    if (m.includes('团队') || m.includes('创作者') || m.includes('开发')) 
+        return '本网站由胡燚团队专业定制开发，主打仪式感与精美视觉效果';
+    if (m.includes('谢谢') || m.includes('感谢') || m.includes('辛苦')) 
+        return '不客气😊 能帮到你我很开心，祝你生日快乐，天天开心！';
+    if (m.includes('生日快乐') || m.includes('生日') || m.includes('生辰')) 
+        return '也祝你生日快乐！平安喜乐，福寿安康，万事胜意🎂';
+    if (m.includes('关闭') || m.includes('退出') || m.includes('结束')) 
+        return '点击右上角×号即可关闭当前窗口，继续体验其他功能';
+    if (m.includes('惊喜') || m.includes('礼物') || m.includes('彩蛋')) 
+        return '点击「点击开启生日惊喜」，里面有蜡烛、红包、祝福语等多重惊喜';
+    if (m.includes('漂亮') || m.includes('好看') || m.includes('精美') || m.includes('喜欢')) 
+        return '谢谢你的喜欢！这份生日祝福网页也祝你幸福美满每一天🥳';
+    return '我是超聪明的胡主人专属AI生日助手😜 你可以问我：功能、红包、许愿、主题、音乐、返回主页等，我都能秒回你~';
 }
 
 function openChat(){chatModal.style.display='flex';}
@@ -451,19 +808,15 @@ function sendChat(){
         botDiv.innerText = getSmartAnswer(val);
         chatBody.appendChild(botDiv);
         chatBody.scrollTop = chatBody.scrollHeight;
-    }, 700);
+    }, 500);
 }
 
-// 本地自动播放（兼容浏览器限制）
 window.onload = () => {
     updateDateTime();
     bgm.volume = 0.8;
-    
-    // 尝试直接播放
     const playPromise = bgm.play();
     if (playPromise !== undefined) {
         playPromise.catch(() => {
-            // 浏览器禁止自动播放时，监听一次点击后播放
             document.addEventListener('click', () => {
                 bgm.play();
                 musicBtn.innerText = '🔊';
