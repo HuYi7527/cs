@@ -9,7 +9,6 @@
 html,body{width:100%;min-height:100vh;background:linear-gradient(135deg,#fff9f9,#ffe6ea);overflow-x:hidden;position:relative;padding-bottom:110px;padding-top:20px;}
 body.hide-splash #splash{display:none;}
 
-/* 顶部生日弹窗 */
 .age-info-modal {
     position: fixed;
     top: 20px;
@@ -27,25 +26,20 @@ body.hide-splash #splash{display:none;}
     white-space: nowrap;
 }
 
-/* 红包弹幕 */
 .redpack-barrage{position:fixed;top:0;left:0;width:100%;height:100vh;pointer-events:none;z-index:992;overflow:hidden;display:none;}
 .barrage-item{position:absolute;white-space:nowrap;font-size:16px;font-weight:bold;color:#ff3333;background:#fff;padding:4px 10px;border-radius:12px;border:1px solid #ff3333;animation:barrageMove linear infinite;}
 @keyframes barrageMove{0%{transform:translateX(105vw);}100%{transform:translateX(-120px);}}
 
-/* 大红包弹窗 */
 .redpack-modal{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);display:none;justify-content:center;align-items:center;z-index:9999;}
 .redpack-box{width:280px;height:380px;background:#ff4444;border-radius:20px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;box-shadow:0 0 30px rgba(255,68,68,0.5);}
 .redpack-title{font-size:18px;color:#fff;font-weight:bold;text-align:center;margin-bottom:40px;line-height:1.6;}
 .open-btn{width:80px;height:80px;background:#ffcc00;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:28px;font-weight:bold;color:#ff0000;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
 
-/* 玫瑰返回按钮 */
 .rose-back-splash{position:fixed;top:12px;left:12px;width:48px;height:48px;background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NCIgZmlsbD0iI2ZmNWE3ZCIvPjxwYXRoIGQ9Ik01MCAyMEMzNSAyMCAyNSAzNSAyNSA1MGMwIDE1IDEwIDMwIDI1IDMwczI1LTE1IDI1LTMwQzc1IDM1IDY1IDIwIDUwIDIweiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik01MCAyMGMtMTAgMC0yMCAxMC0yMCAyMHMxMCAyMCAyMCAyMHYtMTBjLTUgMC0xMC01LTEwLTEwczUtMTAgMTAtMTBoMTB6IiBmaWxsPSIjZmZmIi8+PC9zdmc+") no-repeat center;background-size:contain;border-radius:50%;cursor:pointer;z-index:999;}
 
-/* 主题下拉 */
 .theme-select-box{position:fixed;top:14px;right:12px;z-index:998;}
 .theme-select{padding:6px 10px;border:1px solid #eee;border-radius:8px;background:#fff;font-size:13px;outline:none;}
 
-/* 音乐按钮 */
 .music-toggle{position:fixed;top:70px;left:12px;width:36px;height:36px;border-radius:50%;background:#ff5a7d;color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;z-index:998;}
 
 body.theme1{background:linear-gradient(135deg,#fff9f9,#ffe6ea);}
@@ -58,21 +52,18 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 .bottom-tip{position:fixed;bottom:70px;left:0;width:100%;text-align:center;font-size:14px;color:#555;padding:6px 0;z-index:996;display:none;}
 .wish-tip{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-size:18px;color:#ff5a7d;font-weight:bold;z-index:997;display:none;}
 
-/* 团队详情弹窗 */
 .team-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10002;align-items:center;justify-content:center;}
 .modal-content{background:#fff;width:85%;max-width:340px;padding:28px;border-radius:18px;text-align:center;}
 .modal-content h3{color:#ff5a7d;margin-bottom:16px;font-size:20px;}
 .modal-content p{color:#333;font-size:15px;line-height:1.7;text-align:left;margin-bottom:10px;}
 .modal-close{margin-top:20px;padding:9px 24px;background:#ff5a7d;color:#fff;border:none;border-radius:22px;cursor:pointer;}
 
-/* 惊喜弹窗 */
 .surprise-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9998;align-items:center;justify-content:center;}
 .surprise-box{background:#fff;width:80%;max-width:300px;padding:25px;border-radius:18px;text-align:center;}
 .surprise-box h3{color:#ff5a7d;margin-bottom:20px;}
 .surprise-option{width:100%;padding:10px 0;margin:8px 0;background:#ff5a7d;color:#fff;border:none;border-radius:25px;font-size:15px;cursor:pointer;}
 .surprise-option.close-btn{background:#90EE90;color:#FFD700;}
 
-/* 开始界面 */
 #splash{position:fixed;width:100%;height:100vh;background:linear-gradient(135deg,#ff5a7d,#ff88aa);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;color:#fff;gap:16px;padding:0 20px;}
 .splash-title{font-size:32px;font-weight:bold;letter-spacing:2px;}
 .splash-full-name{font-size:17px;opacity:0.95;margin-bottom:40px;}
@@ -82,7 +73,6 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 .splash-btn{padding:12px 36px;border-radius:30px;border:none;background:#fff;color:#ff5a7d;font-size:16px;font-weight:bold;cursor:pointer;margin-top:8px;}
 .splash-footer{position:absolute;bottom:30px;font-size:12px;color:rgba(255,255,255,0.8);text-align:center;}
 
-/* 主页 */
 .container{width:100%;padding:80px 20px 20px;display:flex;flex-direction:column;gap:24px;align-items:center;}
 .main-full-name{font-size:20px;color:#ff5a7d;font-weight:bold;margin-bottom:8px;}
 .main-time{font-size:16px;color:#666;margin-bottom:10px;}
@@ -94,7 +84,6 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 .wish-cn{font-size:18px;line-height:1.8;color:#333;margin-bottom:10px;}
 .wish-en{font-size:14px;color:#666;}
 
-/* 蛋糕蜡烛 */
 .cake-box{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);transition:0.5s;z-index:994;opacity:0;width:240px;text-align:center;}
 .cake-box.show{transform:translate(-50%,-50%) scale(1);opacity:1;}
 .cake-body{width:200px;height:70px;background:#fff;border-radius:12px;margin:0 auto;}
@@ -106,11 +95,9 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 
 #fireworksCanvas{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:995;pointer-events:none;display:none;}
 
-/* 底部导航栏 */
 .bottom-nav{position:fixed;bottom:0;left:0;width:100%;height:50px;background:#fff;box-shadow:0 -2px 10px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;z-index:990;}
 .nav-wish-btn{background:#ff5a7d;color:#fff;border:none;border-radius:25px;padding:8px 24px;font-size:15px;font-weight:bold;cursor:pointer;}
 
-/* 心愿输入弹窗 */
 .wish-input-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:none;justify-content:center;align-items:center;z-index:10000;}
 .wish-input-box{background:#fff;width:85%;max-width:320px;padding:24px;border-radius:18px;text-align:center;}
 .wish-input-box h3{color:#ff5a7d;margin-bottom:16px;}
@@ -118,21 +105,17 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 .wish-submit{background:#ff5a7d;color:#fff;border:none;border-radius:20px;padding:8px 20px;font-size:15px;cursor:pointer;}
 .wish-close{background:#90EE90;color:#FFD700;border:none;border-radius:20px;padding:8px 20px;font-size:15px;cursor:pointer;margin-left:8px;}
 
-/* 心愿蛋糕展示 */
 .wish-cake-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.92);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:10001;padding:20px;}
 .cake-icon{font-size:100px;margin-bottom:20px;}
 .wish-card{background:#fff;padding:20px 26px;border-radius:16px;box-shadow:0 4px 15px rgba(0,0,0,0.1);max-width:320px;text-align:center;}
 .wish-text{font-size:17px;color:#333;line-height:1.6;}
 .wish-card-close{margin-top:20px;background:#ff5a7d;color:#fff;border:none;border-radius:20px;padding:8px 22px;font-size:15px;cursor:pointer;}
 
-/* 底部版权（专业分行版） */
 .footer{position:fixed;bottom:50px;left:0;width:100%;background:#fff;text-align:center;padding:10px 0;font-size:12px;color:#666;border-top:1px solid #f2f2f2;z-index:989;line-height:1.8;}
-.footer a{color:#ff5a7d;text-decoration:none;margin:0 6px;font-weight:500;cursor:pointer;}
+.footer a{color:#ff5a7d;text-decoration:none;margin:0 6px;font-weight:50%;cursor:pointer;}
 
-/* 右下角客服链接 */
 .service-link{position:fixed;right:12px;bottom:60px;color:#ff5a7d;font-size:13px;text-decoration:underline;cursor:pointer;z-index:991;}
 
-/* AI智能聊天框 */
 .chat-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10003;align-items:center;justify-content:center;}
 .chat-box{background:#fff;width:90%;max-width:330px;height:460px;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;}
 .chat-header{background:#ff5a7d;color:#fff;padding:12px;text-align:center;font-weight:bold;font-size:16px;}
@@ -148,9 +131,7 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 </head>
 <body class="theme1">
 
-<!-- 顶部年龄弹窗 -->
 <div class="age-info-modal" id="ageInfoModal"></div>
-
 <div class="redpack-barrage" id="barrage"></div>
 <div class="redpack-modal" id="redpackModal">
     <div class="redpack-box">
@@ -174,7 +155,6 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 <div class="bottom-tip" id="bottomTip"></div>
 <div class="wish-tip" id="wishTip">请许下您的生日愿望吧</div>
 
-<!-- 团队详情弹窗 -->
 <div class="team-modal" id="teamModal">
     <div class="modal-content">
         <h3>网页创作者：胡燚团队</h3>
@@ -186,7 +166,6 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
     </div>
 </div>
 
-<!-- 惊喜弹窗 -->
 <div class="surprise-modal" id="surpriseModal">
     <div class="surprise-box">
         <h3>选择生日惊喜</h3>
@@ -197,7 +176,6 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
     </div>
 </div>
 
-<!-- 心愿输入弹窗 -->
 <div class="wish-input-modal" id="wishInputModal">
     <div class="wish-input-box">
         <h3>许下生辰心愿</h3>
@@ -209,7 +187,6 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
     </div>
 </div>
 
-<!-- 心愿蛋糕展示 -->
 <div class="wish-cake-modal" id="wishCakeModal">
     <div class="cake-icon">🍰</div>
     <div class="wish-card">
@@ -218,7 +195,6 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
     <button class="wish-card-close" onclick="closeWishCake()">关闭</button>
 </div>
 
-<!-- AI智能聊天框 -->
 <div class="chat-modal" id="chatModal">
     <button class="chat-close" onclick="closeChat()">×</button>
     <div class="chat-box">
@@ -233,7 +209,6 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
     </div>
 </div>
 
-<!-- 开始界面 -->
 <div id="splash">
     <div class="splash-title">敬恩生辰祝福网站</div>
     <div class="splash-full-name">（今天是您的生日）</div>
@@ -245,7 +220,6 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
     <div class="splash-footer">版权所有©胡燚 2026 敬恩生辰祝福网站宣传团队 </div>
 </div>
 
-<!-- 主页内容 -->
 <div class="container">
     <div class="main-full-name">敬恩生辰祝福网站</div>
     <div class="main-time" id="mainTime">北京时间：2025-12-17 15:30:00</div>
@@ -258,7 +232,6 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
     </div>
 </div>
 
-<!-- 蛋糕动画 -->
 <div class="cake-box" id="cakeBox">
     <div class="cake-body"></div>
     <div class="cake-candle-group">
@@ -270,25 +243,28 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 
 <canvas id="fireworksCanvas"></canvas>
 
-<!-- 底部导航 -->
 <div class="bottom-nav">
     <button class="nav-wish-btn" onclick="openWishInput()">许下心愿</button>
 </div>
 
-<!-- 底部版权（分行专业版） -->
 <div class="footer">
     版权所有©胡燚 2026 敬恩生辰祝福网站宣传团队<br/>
+    © 2026 胡燚 - All Rights Reserved.<br>
+    本网站内容（包括但不限于代码、文字、设计、图片）均受著作权法保护。<br>
+    未经书面许可，不得擅自使用、复制、传播或用于商业用途。<br>
+    本页面仅为个人作品展示，不承担任何因使用本页面产生的相关责任。<br/>
     <a onclick="showTeamModal()">网页创作者：胡燚团队</a>
     <a onclick="showTip('请投稿166****7527@163.com…')">联系方式</a>
-    <a onclick="showTip('未经授权，请勿商用…')">法律声明</a>
+    <a onclick="showTip('本网站未经作者授权，不得擅自使用、复制、传播或用于商业用途…')">法律声明</a>
 </div>
 
-<!-- 右下角客服 -->
 <div class="service-link" onclick="openChat()">AI客服</div>
-
 <div class="toast" id="toast"></div>
 
-<audio id="bgm" loop><source src="./birthday.mp3" type="audio/mpeg">
+<!-- 本地音频 -->
+<audio id="bgm" loop preload="auto">
+    <source src="./birthday.mp3" type="audio/mpeg">
+
 
 <script>
 const bgm = document.getElementById('bgm');
@@ -324,7 +300,6 @@ let wishIndex = 0;
 
 const barrageTexts = ["生日快乐 🧧","福寿安康 🧧","万事顺遂 🧧","笑口常开 🧧","平安喜乐 🧧","吉祥如意 🧧","身体健康 🧧","心想事成 🧧"];
 
-// 红包弹窗
 function showRedpackModal(){
     closeSurpriseModal();
     redpackTitle.innerText = `${userName}\n今天是您${userAge}岁生日`;
@@ -333,30 +308,19 @@ function showRedpackModal(){
 function openRedpack(){redpackModal.style.display='none';barrageEl.style.display='block';createBarrage();showTip("红包已开启，祝福红包来袭！");}
 function createBarrage(){barrageEl.innerHTML='';for(let i=0;i<10;i++){const item=document.createElement('div');item.className='barrage-item';item.innerText=barrageTexts[Math.floor(Math.random()*barrageTexts.length)];const top=Math.random()*80+5;const duration=Math.random()*6+8;const delay=Math.random()*5;item.style.top=top+'%';item.style.animationDuration=duration+'s';item.style.animationDelay=delay+'s';barrageEl.appendChild(item);}}
 
-// 祝福语
-// 5个不同核心方向的父母长辈祝福语（愿您开头）
 const wishList = [
-    // 方向1：健康长寿（核心：身体康健）
     {cn:"愿您筋骨强健，步履轻盈，三餐有味，夜夜安枕，健康常伴左右。",en:"May you have strong bones, light steps, delicious meals, peaceful sleep every night, and health always by your side."},
-    // 方向2：清闲自在（核心：少劳多乐）
     {cn:"愿您卸下辛劳，慢享日常，赏花听雨，喝茶闲谈，日子悠然自得。",en:"May you let go of toil, enjoy daily life slowly, appreciate flowers and listen to rain, drink tea and chat, living a carefree life."},
-    // 方向3：家人陪伴（核心：亲情温暖）
     {cn:"愿您身边常有家人伴，闲话家常，共享三餐，岁岁年年皆有暖。",en:"May you always have family by your side, chat about daily life, share meals together, and be surrounded by warmth every year."},
-    // 方向4：万事顺遂（核心：无烦无忧）
     {cn:"愿您所求皆如愿，所行皆坦途，少些纷扰，多些顺遂，生活无烦忧。",en:"May all your wishes come true, your path be smooth, less trouble, more success, and life be free from worries."},
-    // 方向5：喜乐常伴（核心：心情愉悦）
     {cn:"愿您笑口常开，心无忧虑，眼里有光，心中有暖，日日皆有小欢喜。",en:"May you always smile, have no worries in your heart, light in your eyes, warmth in your heart, and small joys every day."}
 ];
 
-// 团队弹窗
 function showTeamModal(){teamModal.style.display='flex';}
 function closeTeamModal(){teamModal.style.display='none';}
-
-// 惊喜弹窗
 function openSurpriseModal(){surpriseModal.style.display='flex';}
 function closeSurpriseModal(){surpriseModal.style.display='none';}
 
-// ①点亮蜡烛
 function chooseCandleSequence(){
     closeSurpriseModal();
     ageInfoModal.innerText = `${userName} 今天是您${userAge}岁生日`;
@@ -372,7 +336,6 @@ function chooseCandleSequence(){
     },6000);
 }
 
-// ②切换祝福语
 function chooseChangeWish(){
     closeSurpriseModal();
     wishIndex=(wishIndex+1)%wishList.length;
@@ -381,23 +344,19 @@ function chooseChangeWish(){
     showTip("祝福语已切换");
 }
 
-// 主题切换
 function changeTheme(){
     const v=themeSelect.value;
     document.body.className=`theme${v} ${document.body.classList.contains('hide-splash')?'hide-splash':''}`;
     showTip("主题已切换");
 }
 
-// 音乐
 function toggleMusic(){
     if(bgm.paused){bgm.play();musicBtn.innerText='🔊';showTip("背景音乐已开启");}
     else{bgm.pause();musicBtn.innerText='🔇';showTip("背景音乐已关闭");}
 }
 
-// 提示
 function showTip(text){toast.innerText=text;toast.style.display='block';setTimeout(()=>toast.style.display='none',2000);}
 
-// 时间更新
 function updateDateTime(){
     const now=new Date();
     const opt={timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'};
@@ -407,7 +366,6 @@ function updateDateTime(){
 }
 setInterval(updateDateTime,1000);
 
-// 进入主页
 function enterMainPage(){
     userName=document.getElementById('userName').value.trim()||'好友';
     isDad=(userName==='胡红安');
@@ -425,7 +383,6 @@ function enterMainPage(){
     showTip("祝福主页已开启");
 }
 
-// 返回开始界面
 function goToSplash(){
     document.body.classList.remove('hide-splash');
     barrageEl.style.display='none';
@@ -433,7 +390,6 @@ function goToSplash(){
     showTip("已返回开始界面");
 }
 
-// 烟花
 function showFireworks(){canvas.style.display='block';launchFireworks();setTimeout(()=>{canvas.style.display='none';},3500);}
 class Particle{constructor(x,y){this.x=x;this.y=y;this.vx=(Math.random()-0.5)*6;this.vy=(Math.random()-0.5)*6;this.alpha=1;this.color=`hsl(${Math.random()*360},70%,60%)`;}
 update(){this.x+=this.vx;this.y+=this.vy;this.alpha-=0.015;}
@@ -450,7 +406,6 @@ function launchFireworks(){
     ani();
 }
 
-// 心愿功能
 function openWishInput(){wishInputModal.style.display='flex';wishInput.value='';}
 function closeWishInput(){wishInputModal.style.display='none';}
 function submitWish(){
@@ -462,7 +417,6 @@ function submitWish(){
 }
 function closeWishCake(){wishCakeModal.style.display='none';}
 
-// AI智能客服问答（升级智能版）
 function getSmartAnswer(msg) {
     const m = msg.trim().toLowerCase();
     if (m.includes('你好') || m.includes('嗨') || m.includes('在吗')) return '你好呀😊 很高兴为你服务！';
@@ -480,20 +434,17 @@ function getSmartAnswer(msg) {
     return '我是胡主人的AI客服，我已经收到你的消息啦，正在努力学习更多知识，你可以问问我网站功能、心愿、红包、主题等问题哦~';
 }
 
-// AI聊天功能
 function openChat(){chatModal.style.display='flex';}
 function closeChat(){chatModal.style.display='none';}
 function sendChat(){
     const val = chatInput.value.trim();
     if (!val) return;
-    // 用户消息
     const userDiv = document.createElement('div');
     userDiv.className = 'chat-message chat-user';
     userDiv.innerText = val;
     chatBody.appendChild(userDiv);
     chatInput.value = '';
     chatBody.scrollTop = chatBody.scrollHeight;
-    // 智能回复
     setTimeout(() => {
         const botDiv = document.createElement('div');
         botDiv.className = 'chat-message chat-bot';
@@ -503,7 +454,25 @@ function sendChat(){
     }, 700);
 }
 
-window.onload=()=>{updateDateTime();bgm.play().catch(()=>{});setTimeout(()=>showFireworks(),500);};
+// 本地自动播放（兼容浏览器限制）
+window.onload = () => {
+    updateDateTime();
+    bgm.volume = 0.8;
+    
+    // 尝试直接播放
+    const playPromise = bgm.play();
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            // 浏览器禁止自动播放时，监听一次点击后播放
+            document.addEventListener('click', () => {
+                bgm.play();
+                musicBtn.innerText = '🔊';
+            }, { once: true });
+        });
+    }
+    musicBtn.innerText = '🔊';
+    setTimeout(() => showFireworks(), 500);
+};
 </script>
 </body>
 </html>
