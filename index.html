@@ -12,7 +12,7 @@
     <meta property="og:url" content="https://huyi7527.github.io/xydy/">
     <meta property="og:type" content="website">
     
-    <meta itemprop="name" content="祝您生日快乐">
+    <meta itemprop:name" content="祝您生日快乐">
     <meta itemprop:description" content="岁岁皆安康！">
     <meta itemprop:image" content="https://huyi7527.github.io/xydy/dangao.png">
       
@@ -314,20 +314,27 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 .surprise-box{background:#fff;width:80%;max-width:300px;padding:25px;border-radius:18px;text-align:center;}
 .surprise-box h3{color:#ff5a7d;margin-bottom:20px;}
 .surprise-option{width:100%;padding:10px 0;margin:8px 0;background:#ff5a7d;color:#fff;border:none;border-radius:25px;font-size:15px;cursor:pointer;}
+
+/* ✅ 美化后的关闭按钮 */
 .surprise-option.close-btn {
-    background: linear-gradient(90deg, #4facfe, #00f2fe);
-    color: #fff;
+    background: linear-gradient(135deg, #7f53ff, #4a7dff);
+    color: #ffffff;
     font-weight: bold;
-    transition: all 0.3s ease;
+    font-size: 16px;
+    transition: all 0.35s ease;
     position: relative;
     overflow: hidden;
+    border-radius: 50px;
+    box-shadow: 0 6px 18px rgba(100, 80, 255, 0.25);
+    letter-spacing: 0.5px;
 }
 .surprise-option.close-btn:hover {
-    transform: scale(1.06);
-    box-shadow: 0 6px 15px rgba(79,172,254,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 26px rgba(100, 80, 255, 0.35);
 }
 .surprise-option.close-btn:active {
-    transform: scale(0.97);
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(100, 80, 255, 0.2);
 }
 .surprise-option.close-btn::after {
     content: '';
@@ -336,9 +343,10 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: lightSweep 2s infinite;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+    animation: lightSweep 3s infinite linear;
 }
+
 @keyframes lightSweep {
     0% { left: -100%; }
     100% { left: 100%; }
@@ -409,6 +417,43 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
 }
 .wish-cn{font-size:16px;line-height:1.7;color:#333;margin-bottom:8px;}
 .wish-en{font-size:13px;color:#666;}
+
+/* 生日祝福视频模块 */
+.video-box{
+    width:100%;
+    background:rgba(255,255,255,0.95);
+    padding:14px;
+    border-radius:16px;
+    text-align:center;
+    margin-top:6px;
+}
+.video-title{
+    font-size:16px;
+    color:#ff5a7d;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+.birthday-video{
+    width:100%;
+    max-width:280px;
+    height:auto;
+    border-radius:12px;
+    object-fit:cover;
+    display:block;
+    margin:0 auto;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.video-download-btn{
+    margin-top:10px;
+    padding:8px 18px;
+    background:linear-gradient(90deg,#ff5a7d,#ff7a9c);
+    color:#fff;
+    border:none;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+}
 
 .cake-box{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);transition:0.5s;z-index:994;opacity:0;width:220px;text-align:center;}
 .cake-box.show{transform:translate(-50%,-50%) scale(1);opacity:1;}
@@ -548,6 +593,7 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
         <h3>法律声明 & 著作权保护</h3>
         <p>1. 本网站所有内容（包括但不限于代码、文字、设计、图片、音频、UI布局等）均由胡燚等团队人员原创开发，受《中华人民共和国著作权法》及国际版权公约保护。</p>
         <p>2. 未经著作权人书面授权，任何单位或个人不得复制、传播、展示、修改、抄袭、转载或用于商业用途。</p>
+        <p>2. 未经著作权人书面授权，任何单位或个人不得复制、传播、展示、修改、抄袭、转载或用于商业用途。</p>
         <p>3. 严禁将本页面用于违法、违规及有损他人权益的用途，否则将依法追究法律责任。</p>
         <p>4. 本页面仅为生日祝福展示使用，不构成任何商业承诺，开发者不承担因使用本页面产生的间接责任。</p>
         <button class="legal-close" onclick="closeLegalModal()">关闭</button>
@@ -629,6 +675,16 @@ body.theme5{background:linear-gradient(135deg,#fcf0ff,#f5d4ff);}
         <div class="wish-cn" id="wishTxt">愿您平安喜乐，万事顺遂，健康常伴，岁岁无忧。</div>
         <div class="wish-en" id="wishEn">May you have peace, health, joy and happiness every year.</div>
     </div>
+
+    <!-- 生日祝福视频（已取消默认静音） -->
+    <div class="video-box">
+        <div class="video-title">🎂 生日祝福视频</div>
+        <video class="birthday-video" id="birthdayVideo" controls playsinline>
+            <source src="birthday.mp4" type="video/mp4">
+            您的浏览器不支持视频播放
+        </video>
+        <button class="video-download-btn" onclick="downloadVideo()">📥 下载视频</button>
+    </div>
 </div>
 
 <div class="cake-box" id="cakeBox">
@@ -689,6 +745,18 @@ const showWishText = document.getElementById('showWishText');
 const chatModal = document.getElementById('chatModal');
 const chatBody = document.getElementById('chatBody');
 const chatInput = document.getElementById('chatInput');
+const birthdayVideo = document.getElementById('birthdayVideo');
+
+// 视频播放时暂停背景音乐，视频停止时恢复音乐
+birthdayVideo.addEventListener('play', function() {
+    bgm.pause();
+});
+birthdayVideo.addEventListener('pause', function() {
+    bgm.play();
+});
+birthdayVideo.addEventListener('ended', function() {
+    bgm.play();
+});
 
 // 音乐盒弹窗
 const musicBoxModal = document.getElementById('musicBoxModal');
@@ -932,13 +1000,24 @@ function submitWish(){
 }
 function closeWishCake(){wishCakeModal.style.display='none';}
 
+// 视频下载功能
+function downloadVideo() {
+    const a = document.createElement('a');
+    a.href = 'birthday.mp4';
+    a.download = '生日祝福视频.mp4';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    showTip('视频已开始下载');
+}
+
 // 超级智能AI客服
 function getSmartAnswer(msg) {
     const m = msg.trim().toLowerCase();
     if (m.includes('你好') ||m.includes('您好') || m.includes('嗨') || m.includes('在吗') || m.includes('hi')) 
         return '您好呀😊 我是胡主人研发的生日AI智能客服助手，祝您生日快乐，万事顺遂！';
     if (m.includes('功能') || m.includes('能干什么') || m.includes('作用') || m.includes('怎么玩')) 
-        return '我可以帮您：点亮蜡烛、切换祝福语、领红包、许愿、换主题、控制音乐～';
+        return '我可以帮您：点亮蜡烛、切换祝福语、领红包、许愿、换主题、播放视频、控制音乐～';
     if (m.includes('客服') || m.includes('帮助') || m.includes('问题') || m.includes('不会')) 
         return '我就是胡主人研发的AI智能客服，有任何问题直接问我就可以啦😉';
     if (m.includes('心愿') || m.includes('蛋糕') || m.includes('许愿')) 
@@ -951,6 +1030,8 @@ function getSmartAnswer(msg) {
         return '点击右上角🧥按钮，即可切换5种超好看的主题风格';
     if (m.includes('音乐') || m.includes('声音') || m.includes('背景')) 
         return '左上角喇叭按钮可以开启/关闭生日快乐背景音乐';
+    if (m.includes('视频') || m.includes('播放视频') || m.includes('看视频') || m.includes('生日视频') || m.includes('下载视频'))
+        return '页面下方可以播放生日祝福视频，播放时背景音乐自动暂停，也可以点击下载保存视频哦🎬';
     if (m.includes('返回') || m.includes('主页') || m.includes('首页')) 
         return '点击左上角🏠房子图标，就可以回到开始页面';
     if (m.includes('联系') || m.includes('作者') || m.includes('电话') || m.includes('邮箱')) 
@@ -981,7 +1062,7 @@ function getSmartAnswer(msg) {
         return '开始页面可以输入姓名，生日祝福会自动适配';
     if (m.includes('日期') || m.includes('生日') || m.includes('时间')) 
         return '开始页面输入生日日期，系统会自动计算年龄和生辰信息';
-    return '我是超聪明的胡主人专属AI生日助手😜 您可以问我：功能、红包、许愿、主题、音乐、返回主页等，其余功能正在不断学习中喔~';
+    return '我是超聪明的胡主人专属AI生日助手😜 您可以问我：功能、红包、许愿、主题、音乐、视频、返回主页等，其余功能正在不断学习中喔~';
 }
 
 function openChat(){chatModal.style.display='flex';}
