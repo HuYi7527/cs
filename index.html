@@ -1000,15 +1000,25 @@ function submitWish(){
 }
 function closeWishCake(){wishCakeModal.style.display='none';}
 
-// 视频下载功能
+// 视频下载功能（从GitHub直链下载 → 保存到本地）
 function downloadVideo() {
-    const a = document.createElement('a');
-    a.href = 'birthday.mp4';
-    a.download = '生日祝福视频.mp4';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    showTip('视频已开始下载');
+  // 你的 GitHub 视频地址
+  const videoUrl = "https://huyi7527.github.io/xydy/birthday.mp4";
+
+  // 创建隐藏a标签，强制下载
+  const a = document.createElement("a");
+  a.href = videoUrl;
+  a.download = "生日祝福视频.mp4";  // 文件名
+  a.target = "_blank";
+
+  // 关键：让浏览器识别为下载，而不是播放
+  a.setAttribute("download", "生日祝福视频.mp4");
+
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  showTip("视频已开始下载，请查看本地下载/相册");
 }
 
 // 超级智能AI客服
